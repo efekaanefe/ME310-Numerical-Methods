@@ -1,0 +1,10 @@
+clc
+format long
+% problem is, a mass is falling and it has air drag applied to it
+% find the velocity as a function of time
+
+% F = ma -> mg - c * v^2 = m * dv/dt
+m = 5;
+g = 9.81;
+C = 1; % drag coef
+exact_sol = sqrt
