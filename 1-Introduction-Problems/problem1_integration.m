@@ -1,5 +1,7 @@
 clc
 format long
+% https://www.sfu.ca/math-coursenotes/Math%20158%20Course%20Notes/sec_Numerical_Integration.html
+
 % problem is integrating a various functions numerically
 
 a = 0; b = 1;
