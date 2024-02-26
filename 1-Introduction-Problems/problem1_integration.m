@@ -5,7 +5,7 @@ format long
 % problem is integrating a various functions numerically
 
 a = 0; b = 1;
-N = 50;
+N = 100;
 f = @(x) sin(x)/(1+x);
 
 
@@ -45,7 +45,7 @@ function sum = calculateIntegral(f,a,b,N, method)
 
             x1 = a+dx*(i-1); % subinterval start
             x2 = a+dx*(i); % subinterval end
-            n = 4;
+            n = 2;
             A = zeros(n+1);
             b = zeros(n+1,1);
             for j = 1:n+1
