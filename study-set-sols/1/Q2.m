@@ -35,15 +35,12 @@ n = 3;          % Polynomial order
 Sum = 0;        % Integral sum
 
 for i = 1:N   % Loop over segments
-   % Calculate n+1 point locations and function values in this interval
+    
+   % Sub-interval x-values and corresponding y values, (discrete data)
    x = linspace(a + h*(i-1), a + h*i, n+1);
    y = f(x);
-   
-   % To calculate the n+1 coefficients of the polynomial p(x), we will
-   % solve an (n+1)x(n+1) system as [C]{A}={F}.
-   % Solve C*A=F system 
-
-   A = transpose(polyfit(x,y,n)) % coefficients
+   % Calculating coef-vector for sub-interval
+   A = flip(polyfit(x,y,n)); % coefficients, order matters
 
    % Calculate the area under the polynomial p(x)
    Area = 0;
