@@ -8,9 +8,9 @@ a = 0;
 b = 1;
 f = @(x) sin(x)./(1+x);  
 
-% a = 0;       
-% b = 2.2;
-% f = @(x) sin(x).^3.*cos(x);
+a = 0;       
+b = 2.2;
+f = @(x) sin(x).^3.*cos(x);
 
 N = 2;       
 exact = integral(f, a, b);   
