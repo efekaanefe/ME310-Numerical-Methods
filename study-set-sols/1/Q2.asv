@@ -1,0 +1,38 @@
+% This code performs numerical integration by dividing a given integration interval
+% [a,b] into N segments and performing n-th order polynomial integration in each segment.
+
+clc         
+clearvars   
+
+a = 0;       
+b = 1
+N = 16;       
+f = @(x) sin(x)./(1+x);      
+                           
+exact = 0.284226985512411;   
+h = (b-a)/N;    
+n = 4;          
+
+for (N=2;N<=128,N)
+Sum = 0;     
+for i = 1:N   % Loop over segments
+    
+   % Sub-interval x-values and corresponding y values, (discrete data)
+   x = linspace(a + h*(i-1), a + h*i, n+1);
+   y = f(x);
+   % Calculating coef-vector for sub-interval
+   A = flip(polyfit(x,y,n)); % coefficients, order matters
+
+   % Calculate the area under the polynomial p(x)
+   Area = 0;
+   for j = 1:n+1
+      Area = Area + A(j) / j * (x(end)^j - x(1)^j);
+   end
+   
+   Sum = Sum + Area;
+end
+
+format long
+% Sum
+error = abs(Sum - exact)
+
