@@ -6,11 +6,14 @@ format long
 
 a = 0;       
 b = 1;
-% f = @(x) sin(x)./(1+x);    
-f = @(x) sin(x).^3.*cos(x);
+f = @(x) sin(x)./(1+x);  
+
+% a = 0;       
+% b = 2.2;
+% f = @(x) sin(x).^3.*cos(x);
 
 N = 2;       
-exact = 0.284226985512411;   
+exact = integral(f, a, b);   
 n = 4;          
 
 true_errors = zeros(7,1);
@@ -40,10 +43,10 @@ while N<=128 % loop over various total number of segments
     N = N*2;
 end
 
-% Given data
+
+% Plot N vs Error
 N = [2, 4, 8, 16, 32, 64, 128];
 
-% Plot the data
 figure;
 loglog(N, true_errors, 'o-', 'LineWidth', 1.5);
 xlabel('N');
