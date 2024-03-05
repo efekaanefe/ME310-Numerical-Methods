@@ -37,14 +37,22 @@ Sum = 0;        % Integral sum
 for i = 1:N   % Loop over segments
    % Calculate n+1 point locations and function values in this interval
    x = linspace(a + h*(i-1), a + h*i, n+1);
-   y = f(x);
    
    % To calculate the n+1 coefficients of the polynomial p(x), we will
    % solve an (n+1)x(n+1) system as [C]{A}={F}.
+   
+   F = transpose(f(x));
+   
+   % Form the [C] matrix.
+   for j = 1:n+1
+      for k = 1:n+1
+         C(j,k) = x(j)^(k-1);
+      end
+   end
+   
    % Solve C*A=F system 
-
-   A = transpose(polyfit(x,y,n)) % coefficients
-
+   A = C\F
+   
    % Calculate the area under the polynomial p(x)
    Area = 0;
    for j = 1:n+1
