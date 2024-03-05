@@ -1,14 +1,14 @@
 % This code performs numerical integration by dividing a given integration interval
 % [a,b] into N segments and performing n-th order polynomial integration in each segment.
 
-clc         
-clear
-clearvars   
+clc;clear;clearvars; close all 
 format long
 
 a = 0;       
 b = 1;
-f = @(x) sin(x)./(1+x);      
+% f = @(x) sin(x)./(1+x);    
+f = @(x) sin(x).^3.*cos(x);
+
 N = 2;       
 exact = 0.284226985512411;   
 n = 4;          
