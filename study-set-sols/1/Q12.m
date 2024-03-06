@@ -36,5 +36,3 @@ disp('-------------------------------------------');
 disp(['0th     |   ', num2str(f_0th_order_at_xy), '            |   ', num2str(true_error_0th_order)]);
 disp(['1st     |   ', num2str(f_1st_order_at_xy), '            |   ', num2str(true_error_1st_order)]);
 disp(['2nd     |   ', num2str(f_2nd_order_at_xy), '            |   ', num2str(true_error_2nd_order)]);
-
-true_value = (2*sin(x) + cos(y))
