@@ -1,8 +1,8 @@
 clc; clear;
 format long
 
-x_values = [0.01, 0.001, 0.0001,0.00001,0.000001,0.0000001];
-y_values = [1000,1000,1000,1000,1000,1000];
+x_values = [1,0.01, 0.001, 0.0001,0.00001,0.000001,0.0000001];
+y_values = [1000,1000,1000,1000,1000,1000,1000];
 
 results_single = zeros(length(x_values), 1, 'single');
 results_double = zeros(length(x_values), 1);
