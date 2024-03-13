@@ -14,7 +14,7 @@ tol = 1e-6;
 max_iter = 1000;
 
 %% exact solution and plotting
-exact_root = fzero(func, interval);
+exact_root = fzero(func, interval)
 % fplot(func, interval)
 
 %% results
