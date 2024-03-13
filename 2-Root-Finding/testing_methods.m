@@ -3,6 +3,7 @@ clc; clear; close all;
 %% hyper-parameters
 
 func = @(x) x^3 - 2*x - 5;
+derivative_func = @(x) 3*x^2 - 2;
 
 % g(x) for the one-point iteration
 g = @(x) func(x) + x;
@@ -24,7 +25,8 @@ roots_incremental_search = incremental_search(func, interval, delta_x);
 root_bisection_method = bisection(func, interval, tol, max_iter);
 root_false_position = false_position(func, interval, tol, max_iter);
 root_one_point_iteration = one_point_iteration(g, initial_guess, tol, max_iter);
- 
+root_newton_raphson = newton_raphson(func, derivative_func, initial_guess, tol, max_iter);
+
 disp('Exact root:');
 disp(exact_root);
 disp('Incremental search:');
@@ -35,4 +37,6 @@ disp('False-Position:');
 disp(root_false_position);
 disp('One-Point-Iteration:');
 disp(root_one_point_iteration);
+disp('Newton-Raphson:');
+disp(root_newton_raphson);
 
