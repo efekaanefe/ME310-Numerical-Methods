@@ -4,12 +4,12 @@ clc; clear; close all;
 
 func = @(x) x^3 - 2*x - 5;
 
-% Define the function g(x) for the one-point iteration method (e.g., x = x^2 - 2)
+% g(x) for the one-point iteration
 g = @(x) func(x) + x;
 
 interval = [0, 5];
 initial_guess = interval(1);
-initial_guess = 2.5;
+% initial_guess = 5;
 delta_x = 0.01;
 tol = 1e-6;
 max_iter = 1000;
