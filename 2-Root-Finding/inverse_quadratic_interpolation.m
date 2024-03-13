@@ -1,4 +1,4 @@
-function root = quadratic_interpolation(func, x0, x1, x2, tol, max_iter)
+function root = inverse_quadratic_interpolation(func, x0, x1, x2, tol, max_iter)
     iter = 0;
     
     while iter < max_iter
@@ -6,17 +6,10 @@ function root = quadratic_interpolation(func, x0, x1, x2, tol, max_iter)
         y1 = func(x1);
         y2 = func(x2);
 
-        A = [x0^2 x0 1; 
-             x1^2 x1 1; 
-             x2^2 x2 1];
-        b = [y0; y1; y2];
-        coeffs = A\b;
-
-        new_roots = roots(coeffs);
-
-        % below line is hard-codded, which selects the biggest root directly
-        % this is the reason why we need IQI method
-        xnew = new_roots(1); 
+        term1 = (y1*y2)/((y0 - y1)*(y0 - y2)) * x0;
+        term2 = (y0*y2)/(y0 - y1 - y2) * x1; % I think there is a typo in eq (6.9) in the book
+        term3 = (y0*y1)/((y2 - y0)*(y2 - y1))*x2;
+        xnew = term1 + term2 + term3;
 
         if abs(func(xnew)) < tol
             root = xnew;

@@ -26,4 +26,5 @@ root_newton_raphson = newton_raphson(func, derivative_func, x0, tol, max_iter)
 root_secant_method = secant_method(func, x0, x1, tol, max_iter)
 root_modified_secant_method = modified_secant_method(func, x0, delta_x, tol, max_iter)
 root_quadratic_interpolation = quadratic_interpolation(func, x0, x1, x2, tol, max_iter)
+root_inverse_quadratic_interpolation = inverse_quadratic_interpolation(func, x0, x1, x2, tol, max_iter)
 
