@@ -37,4 +37,4 @@ error_single_1 = abs(true_value-single_result_1)
 error_single_2 = abs(true_value-single_result_2)
 
 error_double_1 = abs(true_value-double_result_1)
-error_double_2 = abs(true_value-double_result_2 )
+error_double_2 = abs(true_value-double_result_2)
