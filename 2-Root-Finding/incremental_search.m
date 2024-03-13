@@ -1,9 +1,10 @@
 function root = incremental_search(func, interval, delta_x)
-    xmin = interval(1); xmax = interval(2);
-    x = xmin;
+    a = interval(1); 
+    b = interval(2);
+    x = a;
     root = [];
     
-    while x <= xmax
+    while x <= b
         fx = func(x);
         
         if fx * func(x + delta_x) < 0
