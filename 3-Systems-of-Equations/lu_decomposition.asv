@@ -1,4 +1,4 @@
-function x = lu_decomposition(A, b)
+function [x L ] = lu_decomposition(A, b)
    [m, n] = size(A);
 
    if m ~= n
@@ -35,7 +35,7 @@ function x = lu_decomposition(A, b)
 end
 
 
-% Perform LU decomposition:
+% % Perform LU decomposition:
 % for k = 1 to n-1 do
 %     if abs(U(k, k)) < eps then
 %         raise error: "Zero pivot encountered. LU decomposition failed."
@@ -48,16 +48,15 @@ end
 %     end
 % end
 % 
-% Solve Ly = b using forward substitution:
+% % Solve Ly = b using forward substitution:
 % Initialize y as an n x 1 vector of zeros
 % for i = 1 to n do
 %     y(i) = (b(i) - L(i, 1:i-1) * y(1:i-1)) / L(i, i)
 % end
 % 
-% Solve Ux = y using backward substitution:
+% % Solve Ux = y using backward substitution:
 % Initialize x as an n x 1 vector of zeros
 % for i = n to 1 do
 %     x(i) = (y(i) - U(i, i+1:n) * x(i+1:n)) / U(i, i)
 % end
-
-Return x
+% Return x

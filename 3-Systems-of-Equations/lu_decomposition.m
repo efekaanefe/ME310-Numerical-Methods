@@ -1,4 +1,4 @@
-function x = lu_decomposition(A, b)
+function [x, L, U] = lu_decomposition(A, b)
    [m, n] = size(A);
 
    if m ~= n
