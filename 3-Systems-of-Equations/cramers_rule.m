@@ -1,13 +1,4 @@
 
-A = [2 -1 1; 1 1 -1; 3 2 1];
-b = [5; 0; 9];
-
-x = cramer(A, b);
-
-disp('Solution:');
-disp(x);
-
-
 function x = cramer(A, b)
     [m, n] = size(A);
     if m ~= n
@@ -29,3 +20,9 @@ function x = cramer(A, b)
         x(i) = det(Ai) / det(A);
     end
 end
+
+% FOR i = 1 TO size(A, 2) DO
+%     Ai ← Copy of A
+%     Replace i-th column of Ai with b
+%     Calculate x(i) as det(Ai) / det(A)
+% END FOR
