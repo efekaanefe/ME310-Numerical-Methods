@@ -10,6 +10,7 @@ n = length(b);
 
 tol = 1e-5;
 max_iter = 10000;
+lambda = 1; % relaxation
 initial_guess = ones(n,1);
 
 %% tests
@@ -17,8 +18,8 @@ initial_guess = ones(n,1);
 % x = cramer(A, b);
 % x = gaussian_elimination(A,b);
 % [x, L, U] = lu_decomposition(A,b)
-x = jacobi(A, b, initial_guess, tol, max_iter)
-x = gauss_seidel(A, b, initial_guess, tol, max_iter);
+% x = jacobi(A, b, initial_guess, tol, max_iter, lambda);
+x = gauss_seidel(A, b, initial_guess, tol, max_iter, lambda);
 
 disp('Solution:');
 disp(x);

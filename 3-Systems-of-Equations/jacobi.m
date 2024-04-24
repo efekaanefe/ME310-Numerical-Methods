@@ -1,4 +1,4 @@
-function x = jacobi(A, b, initial_guess, tol, max_iter)
+function x = jacobi(A, b, initial_guess, tol, max_iter, lambda)
 
     n = length(b);
     x_old = initial_guess; 
@@ -22,7 +22,7 @@ function x = jacobi(A, b, initial_guess, tol, max_iter)
             break;
         end
         
-        x_old = x_new;
+        x_old = lambda * (x_new) + (1-lambda)*x_old;
     end
     
     x = x_new;
