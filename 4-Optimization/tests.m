@@ -4,7 +4,7 @@ tol = 1e-5;
 max_iter = 1000;
 epsilon = 1e-5;
 f = @(x) (x-4)^2;
-df = @(x) (f(x+epsilon*x)-f(x))/epsilon;
+df = @(x) (f(x+epsilon)-f(x))/epsilon;
 a = 1; b = 10; % Initial interval bounds
 
 %% tests for 1D, unconstrained methods
@@ -14,21 +14,26 @@ a = 1; b = 10; % Initial interval bounds
 
 % fprintf('Minimum point: x = %.2f, f(x) = %.2f\n', xmin, fmin);
 
-%% inputs for 2D, unconstrained methods
-
-
 %% tests for 2D, unconstrained methods
 
-% objectiveFunction = @(x, y) x^2 + y^2;
-% searchSpace = [-5 5; -5 5]; % Search space for x and y
-% [bestSolution, bestObjective] = random_search(objectiveFunction, searchSpace, max_iter);
+% objective_function = @(x, y) x^2 + y^2;
+% search_space = [-5 5; -5 5]; % Search space for x and y
+% [bestSolution, bestObjective] = random_search(objective_function, search_space, max_iter);
 % fprintf('Best solution: (%.4f, %.4f)\n', bestSolution);
 % fprintf('Best objective value: %.4f\n', bestObjective);
 
-objectiveFunction = @(x, y) -1*(y-x-2*x^2-2*x*y-y^2);
+
+objective_function = @(x, y) -1*(y-x-2*x^2-2*x*y-y^2);
 x_range = linspace(-10, 10, 100);
 y_range = linspace(-10, 10, 100);
-[optimal_x, optimal_y, min_fval] = univariate_search(objectiveFunction, x_range, y_range); 
+[optimal_x, optimal_y, min_fval] = univariate_search(objective_function, x_range, y_range); 
 fprintf('Optimal value of x: %.4f\n', optimal_x);
 fprintf('Optimal value of y: %.4f\n', optimal_y);
 fprintf('Optimal value of f(x,y): %.4f\n', min_fval);
+
+
+objective_function = @(x, y) -1*(y-x-2*x^2-2*x*y-y^2);
+x0 = 1; y0 = 1;
+[x_min, y_min, f_min] = powells_method(objective_function, x0, y0, tol);
+fprintf('Minimum point: (%.4f, %.4f)\n', x_min, y_min);
+fprintf('Minimum value: %.4f\n', f_min);
