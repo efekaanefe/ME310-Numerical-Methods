@@ -50,8 +50,8 @@ a = 1; b = 10; % Initial interval bounds
 % fprintf('Minimum value: %.4f\n', f_min);
 
 
-% f = @(x, y) -1*(y-x-2*x^2-2*x*y-y^2);
-f = @(x, y) x^2 + y^2;
+f = @(x, y) -1*(y-x-2*x^2-2*x*y-y^2);
+% f = @(x, y) x^2 + y^2;
 grad_f = @(x,y) [(f(x+epsilon,y)-f(x,y))/epsilon; ... 
                 (f(x,y+epsilon)-f(x,y))/epsilon];
 hessian_f = @(x, y) [(grad_f(x + epsilon, y) - grad_f(x, y)) / epsilon, ...
