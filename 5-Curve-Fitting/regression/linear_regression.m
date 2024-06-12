@@ -3,8 +3,7 @@ function y_fit = linear_regression(x, y)
     % n = size(x, 2);
     % a1 = (n*sum(x.*y)-sum(x)*sum(y))/(n*sum(x.^2)-sum(x)^2);
     % a0 = mean(y) - a1 * mean(x); 
-    % y_pred = a1*x+a0;
-
+    % y_fit = a1*x+a0;
 
 
     % Z*a = b -> Z.T * Z * a = Z.T * b -> solve for a vector
